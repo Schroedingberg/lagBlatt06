@@ -1,0 +1,109 @@
+* 
+  
+** a) Bestimmen Sie die Dimensionen von U_1 und U_2
+   Idee:
+   Vektoren in U_1 müssten so aussehen: 
+   #+BEGIN_EXPORT latex
+   \[
+   \begin{pmatrix}
+   a\\
+   b\\
+   x$_3$\\
+   -a\\
+   -b\\
+   \end{pmatrix},
+   \begin{pmatrix}
+   -a\\
+   b\\
+   x$_3$\\
+   a\\
+   -b\\
+   \end{pmatrix},
+   \begin{pmatrix}
+   a\\
+   -b\\
+   x$_3$\\
+   -a\\
+   b\\
+   \end{pmatrix},
+   \begin{pmatrix}
+   -a\\
+   -b\\
+   x$_3$\\
+   a\\
+   b\\
+   \end{pmatrix} \forall a, b, x_3 \in \mathbb{R}
+   \]
+   #+END_EXPORT
+   damit \( x_1 + x_4 = 0 = x_2 + x_5\) erfüllt ist.
+   Wenn das so stimmt, dann braucht man auf jeden Fall alle fünf
+   Einheitsvektoren um U_1 erzeugen zu können, dh. dann wäre
+   \(\dim_{\mathbb{K}}{U_1} = 5\).
+   
+
+
+
+* 
+  Es seien U_1, U_2 und U_3 Unterräume eines endlich-dimensionalen Vektorraumes V. 
+** a) zz.: \(\dim_{\mathbb{K}}{U_1+U_2+U_3} \leq \dim_{\mathbb{K}}{U_{1}} +\dim_{\mathbb{K}}{U_{2}} + \dim_{\mathbb{K}}{U_{3}} - \dim_{\mathbb{K}}{U_{1} \cap U_{2}} - \dim_{\mathbb{K}}{U_{1} \cap U_{3}} - \dim_{\mathbb{K}}{U_{2} \cap U_3} + \dim_{\mathbb{K}}{U_{1}\cap U_2 \cap U_3  }  \) 
+
+* 
+  
+** \((\phi_1(f) ) (n) = f(n^2)\)
+   Vermutung: Homomorphismus. Ich habe das auch versucht
+   nachzurechnen, aber das sieht irgendwie so offensichtlich aus, dass
+   das nachrechnen nur nach schön Aufschreiben aussieht.
+
+** \((\phi_2(f))(n) = (f(n))^2\)
+   zz: \(\phi(f+g)(n) = (f(n))^2 + (g(n))^{2} \forall f,g\in \text{Abb}(\mathbb{N},\mathbb{R})\) 
+   (Wiederkehrende Quantoren in Aussagen ab hier weggelassen)
+   \((\phi(f+g)(n) = ((f+g)(n))^2)\)
+   Kein Homomorphismus!
+   Beweis durch Gegenbeispiel:
+   \(f(n) = 2n, g(n) = -n\)\\
+   Dann: \\
+   \( \phi_{2}(f+g)(n) = \phi_{2}(2n-n)(n) = \phi_{2}(n)(n) = n^2\)\\
+   aber \(\phi_2(2n)+\phi_{2}(-n) = (2n)^2 +(-n)^n = 5n^{2} \neq n^{2}\) 
+
+** \(\phi(f+g)(n) = n^2\cdot f(n+1)\)
+   (Nur Beweisskizze, sonst zu viel zu tippen)
+   
+*** Addition
+    \(\phi(f+g)(n) = n^2 ((f+g))(n+1)\)\\
+    \(\phi(f) + \phi(g) = n^2\cdot (f(n+1)) + n^2\cdot(g(n+1)) =
+    n^2(f(n+1)+g(n+1)) = n^2((f+g)(n+1)) \) Fertig.
+
+*** Skalare Multiplikation
+    \(\phi(cf)(n) = n^2  cf(n+1)\)\\
+    \(c\phi(f)(n) = c(n^2 \cdot f(n+1)) = cn^2f(n+1) = n^2 cf(n+1)\)
+    Fertig
+
+
+
+
+* 
+  
+** a) zz.: \(\alpa \in End(\mathbb{R}^3)\)
+   
+*** Addition
+    Ich habe den Eindruck, dass das ziemlich offensichtlich
+    strukturverträglich ist (Ist mir etwas zu viel, das alles
+    einzutippen.)
+    Da das recht offensichtlich ist, könnte man noch mit den
+    Körpereigenschaften argumentieren, das würde Schreibarbeit sparen.
+
+*** Skalare Multiplikation 
+    Analog
+
+** b)
+   Kern ist definiert als Kern \alpha = \(\{v\in \mathbb{R}^3 |\alpha(v) = 0\}\)
+   Also muss man dieses Gleichungssystem lösen:
+   2x-y+3z = 0\\
+   3x+5y-z = 0\\
+   -7x-16y+6z = 0\\
+   Als ich das von Hand versucht habe, sind ziemlich krumme Werte herausgekommen, lag vielleicht an 2 Uhr nachts.
+   NumPy sagt, die Lösung ist (0,0,0). Das wäre natürlich praktisch, weil dann dim(Kern \alpha) = 0 wäre (wegen \({(0,0,0)} = <\emptyset>\)) und das
+   natürlich zur Dimensionsformel passen würde und dann hätte man dim V = dim Kern \alpha + dim Bild \alpa = 0+3 .
+   (Demnach wäre dann die Basis vom Bild sowas wie {e_i})
+   
+   
