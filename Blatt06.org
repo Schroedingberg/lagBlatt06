@@ -40,13 +40,32 @@
    Einheitsvektoren um U_1 erzeugen zu können, dh. dann wäre
    \(\dim_{\mathbb{K}}{U_1} = 5\).
    
+   Bei U_2 hänge ich daran fest, dass x_3 = -(x_2+x_4) = -(x_1+x_5).
+   Ich vermute, dass man hier auch irgendwie ein Gleichungssystem lösen kann, aber ich sehe nicht wie das helfen würde.
+   Mit etwas Herumrechnen sieht es auch hier für mich so aus, als ob hier entweder alle Elemente 0 sein müssen oder keines, 
+   was dazu führen würde, dass auch hier alle fünf Einheitsvektoren benötigt werden. Kommt mir komisch vor.
+   
+** b) 
+   Da ich a) nicht vernünftig gelöst habe, kann mein Lösungvorschlag hier natürlich auch nicht zuverlässig sein.
+   Ich versuche es trotzdem:
+   Man muss die Vektoren finden, die in Basen von U_1, U_2 lin.unabh. sind.
+   Die müssen natürlich auch in U_1 und in U_2 sein.
+   Also müsste man die Bedingungen in den Mengenkomprehensionen als ein Gleichungssystem lösen können. (Ich hab keine Ahnung, was ich tue)
+
+   x_1 + x_4 = 0\\
+   x_2+x_5 = 0\\
+   x_2+x_3+x_4 = 0\\
+   x_1+x_3+x_5 = 0\\.
+   Wenn ich das löse, komme ich (o Wunder) auf x_3=0. 
+   
+
+** c) Vermutung: Genausoviele wie U1\cap U_2
 
 
-
-* 
+*   
   Es seien U_1, U_2 und U_3 Unterräume eines endlich-dimensionalen Vektorraumes V. 
-** a) zz.: \(\dim_{\mathbb{K}}{U_1+U_2+U_3} \leq \dim_{\mathbb{K}}{U_{1}} +\dim_{\mathbb{K}}{U_{2}} + \dim_{\mathbb{K}}{U_{3}} - \dim_{\mathbb{K}}{U_{1} \cap U_{2}} - \dim_{\mathbb{K}}{U_{1} \cap U_{3}} - \dim_{\mathbb{K}}{U_{2} \cap U_3} + \dim_{\mathbb{K}}{U_{1}\cap U_2 \cap U_3  }  \) 
-
+** a) zz.: \(\dim_{\mathbb{K}}{U_1+U_2+U_3} \leq \dim_{\mathbb{K}}{U_{1}} +\dim_{\mathbb{K}}{U_{2}} + \dim_{\mathbb{K}}{U_{3}} - \dim_{\mathbb{K}}{U_{1} \cap U_{2}} - \dim_{\mathbb{K}}{U_{1} \cap U_{3}} - \dim_{\mathbb{K}}{U_{2} \cap U_3} + \dim_{\mathbb{K}}{U_{1}\cap U_2 \cap U_3  }  \)
+   Leider gar keine Ahnung. Man bräuchte diesen Basiserweiterungssatz, den ich nicht verstanden habe.
 * 
   
 ** \((\phi_1(f) ) (n) = f(n^2)\)
@@ -83,7 +102,7 @@
 
 * 
   
-** a) zz.: \(\alpa \in End(\mathbb{R}^3)\)
+** a) zz.: \(\alpha \in End(\mathbb{R}^3)\)
    
 *** Addition
     Ich habe den Eindruck, dass das ziemlich offensichtlich
@@ -96,14 +115,50 @@
     Analog
 
 ** b)
-   Kern ist definiert als Kern \alpha = \(\{v\in \mathbb{R}^3 |\alpha(v) = 0\}\)
-   Also muss man dieses Gleichungssystem lösen:
-   2x-y+3z = 0\\
+   Kern ist definiert als Kern \alpha = \(\{v\in
+   \mathbb{R}^3 |\alpha(v) = 0\}\) Also muss man dieses
+   Gleichungssystem lösen: 2x-y+3z = 0\\
    3x+5y-z = 0\\
    -7x-16y+6z = 0\\
-   Als ich das von Hand versucht habe, sind ziemlich krumme Werte herausgekommen, lag vielleicht an 2 Uhr nachts.
-   NumPy sagt, die Lösung ist (0,0,0). Das wäre natürlich praktisch, weil dann dim(Kern \alpha) = 0 wäre (wegen \({(0,0,0)} = <\emptyset>\)) und das
-   natürlich zur Dimensionsformel passen würde und dann hätte man dim V = dim Kern \alpha + dim Bild \alpa = 0+3 .
-   (Demnach wäre dann die Basis vom Bild sowas wie {e_i})
+   Als ich das von Hand versucht habe, sind ziemlich krumme Werte
+   herausgekommen, lag vielleicht an 2 Uhr nachts.  NumPy sagt, die
+   Lösung ist (0,0,0). Das wäre natürlich praktisch (und natürlich
+   funktioniert es mit (0,0,0), ist nur die Frage ob das reicht, ist ja trivial), weil
+   dann dim(Kern \alpha) = 0 wäre (wegen \({(0,0,0)} = <\emptyset>\))
+   und das natürlich zur Dimensionsformel passen würde und dann hätte
+   man dim V = dim Kern \alpha + dim Bild \alpa = 0+3 .  (Demnach wäre
+   dann die Basis vom Bild sowas wie {e_i})
    
+** c)
+   Könnte eine Fangfrage sein. Ich würde sagen, die Wahl des Körpers
+   ist egal, Körper ist Körper, sonst würden die ganzen Sachen, die
+   darauf aufbauen ja nicht funktionieren (So kann man das natürlich
+   nichts aufs Blatt schreiben.).  Eine Überlegung wäre hier noch,
+   dass es mit bestimmten endlichen Körpern nicht geht, also sowas wie
+   \(\mathbb{Z}mod2\), aber ich habe noch keine konkrete Idee, wie man
+   zeigt was dann passiert. Vielleicht ist dann einfach das
+   Gleichungssystem nicht lösbar.
+
+
    
+* 
+  zz: Sind \(W_1,W_2 \in \mathbb{W}\) mit \(W_1 \leq W_2\), so gilt:\\
+  \(\dim W_1 -\dim(U\cap W_1) \leq \dim W_2 - \dim(U\cap W_2)\) 
+  
+  - Wir wissen :: \(W_1\leq W_2\)
+		  Nach Satz 5.14(b) gilt dann: 
+		  \(\dim W_1 \leq dim W_2\\)
+  - Nun bleibt noch zu zeigen :: \(\dim(U\cap W_{1})\geq \dim(U\cap
+       W_{2})\) (Selbstverständlich muss man davon ausgehen, dass
+       Dimensionen nicht negativ sein können.)  Der Tipp ist, dass man
+       die Schnitte jeweils zu einer Basis von \(W_i\) erweitern soll.
+       Wenn ich die Vorlesung richtig verstehe, ist das was dann
+       passiert, dass man natürlich eine Basis von W_i erhält, die
+       aber auch die gleiche Mächtigkeit wie jede andere hat.  In dem
+       Fall würde dann die Dimension, die man erhält jeweils gleich
+       \(\dim W_{i}\) werden, und somit hätte man auf beiden Seiten 0.
+       Damit wäre die Gleichheit in dem "\leq" Ausdruck gezeigt. Ich
+       vermute für "<" kann man jetzt auch noch weiter mit diesem
+       Erweiterungssatz argumentieren, aber mir ist auch dessen
+       Bedeutung noch nicht ganz klar.
+       
